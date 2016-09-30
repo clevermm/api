@@ -111,10 +111,6 @@ var_dump(makereq('sendMessage',[
         ])
     ]));
 }
-elseif ($textmessage == '/help')
-{
-SendMessage($chat_id,"حال نداشتم بنویسم جینده ها")
-}
 else
 {
 SendMessage($chat_id,"*Command Not Found*\n _send_ /help _for more information_");
