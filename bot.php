@@ -89,18 +89,18 @@ makereq('ForwardMessage',[
 
  if($textmessage == '/start')
 {
-SendMessage($chat_id,"*Welcome* `#$name` :)\nYou Can Change This ;)");
+SendMessage($chat_id,"*خوش اومدی* `#$name` :)");
 }
 elseif ($textmessage == '/fwrd')
 {
-SendMessage($chat_id,"Now I Forward Your Text To You :X");
+SendMessage($chat_id,"الان پیامتو به خودت فروارد میکنم:X");
 Forward($chat_id,$chat_id,$message_id);
 }
 elseif ($textmessage == '/inlinekb')
 {
 var_dump(makereq('sendMessage',[
         'chat_id'=>$update->message->chat->id,
-        'text'=>"_This Is Simple Inline Keyboard Only For Only for_ *training*",
+        'text'=>"_این فقط یه نمونه کیبورد شیشه ایه برای _ *تمرین*",
 	'parse_mode'=>'MarkDown',
         'reply_markup'=>json_encode([
             'inline_keyboard'=>[
@@ -111,9 +111,13 @@ var_dump(makereq('sendMessage',[
         ])
     ]));
 }
+elseif ($textmessage == '/help')
+{
+SendMessage($chat_id,"حال نداشتم بنویسم جینده ها")
+}
 else
 {
-SendMessage($chat_id,"*Command Not Found*\n _send_ /help _for more information_");
+SendMessage($chat_id,"*دستور یافت نشد*\n /help _رو بفرست برای اطلاعات بیشتر_");
 }
 
 
