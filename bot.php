@@ -101,7 +101,7 @@ elseif ($textmessage == '/inlinekb')
 var_dump(makereq('sendMessage',[
         'chat_id'=>$update->message->chat->id,
         'text'=>"_این فقط یه نمونه کیبورد شیشه ایه برای _ *تمرین*",
-	'parse_mode'=>'MarkDown',
+ 'parse_mode'=>'MarkDown',
         'reply_markup'=>json_encode([
             'inline_keyboard'=>[
                 [
