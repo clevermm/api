@@ -1,5 +1,8 @@
 <?php
-define('API_KEY','275661249:AAFxVcKa6FQvffQJ8KcIJTEhnQR-cQCM2EE');
+
+define('API_KEY','275661249:AAHhTz0fr80Cbf1QuWW8zr60iCL_p1biEz0');
+//----######------
+
 function makereq($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
@@ -45,7 +48,7 @@ function apiRequest($method, $parameters) {
 }
 
 //----######------
-//-------
+//---------
 $update = json_decode(file_get_contents('php://input'));
 var_dump($update);
 //=========
@@ -89,35 +92,31 @@ makereq('ForwardMessage',[
 
  if($textmessage == '/start')
 {
-SendMessage($chat_id,"*خوش اومدی* `#$name` :)");
+SendMessage($chat_id,"*Welcome* `#$name` :)\n ;)");
 }
 elseif ($textmessage == '/fwrd')
 {
-SendMessage($chat_id,"الان پیامتو به خودت فروارد میکنم:X");
+SendMessage($chat_id,"alan be khodet forward mikonam");
 Forward($chat_id,$chat_id,$message_id);
 }
 elseif ($textmessage == '/inlinekb')
 {
 var_dump(makereq('sendMessage',[
         'chat_id'=>$update->message->chat->id,
-        'text'=>"_این فقط یه نمونه کیبورد شیشه ایه برای _ *تمرین*",
+        'text'=>"_in faqat bara_ *teste*",
  'parse_mode'=>'MarkDown',
         'reply_markup'=>json_encode([
             'inline_keyboard'=>[
                 [
-                    ['text'=>"Join vainglory channel 👑",'url'=>"https://telegram.me/vainglory_ir"]
+                    ['text'=>"Join VainGlory Channel 👑",'url'=>"https://telegram.me/vainglory_ir"]
                 ]
             ]
         ])
     ]));
 }
-elseif ($textmessage == '/help')
-{
-SendMessage($chat_id,"حال نداشتم بنویسم جینده ها")
-}
 else
 {
-SendMessage($chat_id,"*دستور یافت نشد*\n /help _رو بفرست برای اطلاعات بیشتر_");
+SendMessage($chat_id,"*nafahmidam chi shod:|*");
 }
 
 
